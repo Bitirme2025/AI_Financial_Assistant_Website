@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Financial Assistant - Capstone Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            /* Light Theme Palette */
+            --primary-color: #0056b3;   /* Deep corporate blue for primary actions and titles */
+            --secondary-color: #ffffff; /* White for card backgrounds */
+            --bg-color: #f8f9fa;        /* Very light gray/off-white for main background */
+            --text-color: #343a40;      /* Dark gray for main text for readability */
+            --muted-text: #6c757d;      /* Lighter gray for subtitles and info */
+            --accent-color: #28a745;    /* Financial 'success' green */
+            --border-color: #e9ecef;    /* Light border color */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            /* New working bright image with a light white overlay */
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: var(--muted-text);
+            font-weight: 500;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #004494;
+            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .section-center {
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--muted-text);
+        }
+
+        /* Documents / Reports Section Styles */
+        .phase-title {
+            text-align: left;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            font-weight: 600;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .doc-card {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .doc-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .doc-card i.doc-icon {
+            font-size: 2rem; 
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .doc-card h4 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .btn-doc {
+            background-color: #e9ecef; /* Light gray button for docs */
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-doc:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-doc i {
+            margin-right: 5px;
+            font-size: 0.8em;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .member-info {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            margin-top: 5px;
+        }
+
+        .team-member h4 {
+            margin: 10px 0 5px 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40; /* Dark footer looks good with light theme */
+            color: #adb5bd;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AI Financial Assistant</h1>
+        <p class="subtitle">An intelligent platform for sentiment analysis, market forecasting, and personalized portfolio optimization.</p>
+        <a href="https://github.com/YOUR_ORG_NAME/YOUR_REPO_NAME" class="btn" target="_blank">
+            <i class="fab fa-github"></i> View Website Source
+        </a>
+    </header>
+
+    <section id="about">
+        <div class="section-center">
+            <h2>Project Overview</h2>
+            <p class="about-text">
+                This project presents the design and development of an <strong>AI-powered personalized financial assistant</strong>. 
+                The system enables retail investors to make informed decisions by integrating multiple AI modules: 
+                news-based sentiment analysis, stock & sector forecasting (TCN & MAMBA), and a Reinforcement Learning-based portfolio optimizer.
+                Users interact with the system through an intuitive chat interface powered by a central AI agent.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="section-center">
+            <h2>Key Features</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-newspaper"></i>
+                <h3>News Sentiment Analysis</h3>
+                <p>
+                    Utilizes NLP transformer models (BERT/RoBERTa) to analyze multilingual financial news, determining
+                    sentiment direction (positive/negative) and impact on specific sectors.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Market Forecasting</h3>
+                <p>
+                    Leverages Temporal Convolutional Networks (TCN) for individual stock price direction and 
+                    MAMBA multi-scale attention models for long-term sector trend predictions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-coins"></i>
+                <h3>RL Portfolio Optimizer</h3>
+                <p>
+                    A Reinforcement Learning module that dynamically adapts asset allocation recommendations 
+                    based on the user's risk profile, investment horizon, and market conditions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-comments"></i>
+                <h3>RAG Document Assistant</h3>
+                <p>
+                    Retrieval-Augmented Generation (RAG) allows users to upload financial reports 
+                    and query them using natural language for context-aware insights.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="documents">
+        <div class="section-center">
+            <h2>Project Deliverables</h2>
+            <p style="color: var(--muted-text); margin-bottom: 30px;">
+                Documentation for Graduation Project (YAP/BİL 495 & 496). <br>
+                <small><em>Note: Documents are hosted in a private repository and require access rights.</em></small>
+            </p>
+        </div>
+
+        <h3 class="phase-title">YAP495/BIL495</h3>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <i class="fas fa-file-signature doc-icon"></i>
+                <h4>Project Proposal</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/Proposal.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-list-check doc-icon"></i>
+                <h4>Project Specifications</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/Specs.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-magnifying-glass doc-icon"></i>
+                <h4>Analysis Report</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/Analysis.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-layer-group doc-icon"></i>
+                <h4>High-Level Design</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/HighLevelDesign.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> View Document
+                </a>
+            </div>
+        </div>
+
+        <h3 class="phase-title" style="margin-top: 100px;">YAP496/BIL496</h3>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <i class="fas fa-code doc-icon"></i>
+                <h4>Low-Level Design</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/LowLevelDesign.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> Coming Soon
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-vial doc-icon"></i>
+                <h4>Test Plan Report</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/TestPlan.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> Coming Soon
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-book-open doc-icon"></i>
+                <h4>Final Report</h4>
+                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/FinalReport.pdf" class="btn-doc" target="_blank">
+                    <i class="fas fa-lock"></i> Coming Soon
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="section-center">
+            <h2>The Team</h2>
+            <p style="margin-bottom: 30px; color: var(--muted-text);">TOBB University of Economics & Technology - AI Engineering</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Akif Emre Reis</h4>
+                <div class="member-info">221401020</div>
+                <div class="member-info">akifreis@mail.com</div> 
+            </div>
+            <div class="team-member">
+                <h4>Can Gürcüoğlu</h4>
+                <div class="member-info">221401016</div>
+                <div class="member-info">cangurcuoglu@mail.com</div> 
+            </div>
+		<div class="team-member">
+                <h4>Adil Kaygın</h4>
+                <div class="member-info">221401003</div>
+                <div class="member-info">adilkaygin@mail.com</div> 
+            </div>
+            <div class="team-member">
+                <h4>Hüseyin Arda Tuz</h4>
+                <div class="member-info">221404032</div>
+                <div class="member-info">ardatuz4@gmail.com</div>
+            </div>
+	    <div class="team-member">
+                <h4>Ali Berk Karaarslan</h4>
+                <div class="member-info">221401010</div>
+                <div class="member-info">abkaraarslan7@gmail.com</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AI Financial Assistant Project. All Rights Reserved.</p>
+        <p>Developed for YAP496/BIL496 - Graduation Project Course.</p>
+    </footer>
+
+</body>
+</html>
