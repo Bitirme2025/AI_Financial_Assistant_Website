@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Financial Assistant</title>
+    <title>AI Financial Assistant - Capstone Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -73,6 +73,20 @@
             box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
         }
 
+	.btn-disabled {
+	    background-color: #e9ecef;
+            color: #999; /* Daha silik yazı rengi */
+    	    padding: 10px 15px;
+    	    border-radius: 5px;
+    	    text-decoration: none;
+    	    font-size: 0.9rem;
+    	    display: inline-block;
+    	    font-weight: 600;
+    	    cursor: not-allowed;
+    	    opacity: 0.7;
+    	    pointer-events: none;
+	}
+	
         .btn:hover {
             transform: translateY(-3px);
             background-color: #004494;
@@ -354,33 +368,33 @@
             <div class="doc-card">
                 <i class="fas fa-file-signature doc-icon"></i>
                 <h4>Project Proposal</h4>
-                <a href="https://github.com/Bitirme2025/AI_Financial_Assistant_Website/blob/main/docs/Project_Proposal.docx" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> View Document
+                <a href="https://github.com/Bitirme2025/AI_Financial_Assistant_Website/blob/main/docs/Project_Proposal.pdf" class="btn-doc" target="_blank">
+                    <i class="fas"></i> View Document
                 </a>
             </div>
 
             <div class="doc-card">
                 <i class="fas fa-list-check doc-icon"></i>
                 <h4>Project Specifications</h4>
-                <a href="https://github.com/Bitirme2025/AI_Financial_Assistant_Website/blob/main/docs/Project_Specifications_Report.docx" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> View Document
+                <a href="https://github.com/Bitirme2025/AI_Financial_Assistant_Website/blob/main/docs/Project_Specifications_Report.pdf" class="btn-doc" target="_blank">
+                    <i class="fas"></i> View Document
                 </a>
             </div>
 
             <div class="doc-card">
                 <i class="fas fa-magnifying-glass doc-icon"></i>
                 <h4>Analysis Report</h4>
-                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/Analysis.pdf" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> View Document
-                </a>
+				<span class="btn-disabled">
+            		<i class="fas fa-lock"></i> Coming Soon
+        		</span>
             </div>
 
             <div class="doc-card">
                 <i class="fas fa-layer-group doc-icon"></i>
                 <h4>High-Level Design</h4>
-                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/HighLevelDesign.pdf" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> View Document
-                </a>
+				<span class="btn-disabled">
+            		<i class="fas fa-lock"></i> Coming Soon
+        		</span>
             </div>
         </div>
 
@@ -389,25 +403,25 @@
             <div class="doc-card">
                 <i class="fas fa-code doc-icon"></i>
                 <h4>Low-Level Design</h4>
-                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/LowLevelDesign.pdf" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> Coming Soon
-                </a>
+				<span class="btn-disabled">
+            		<i class="fas fa-lock"></i> Coming Soon
+        		</span>
             </div>
 
             <div class="doc-card">
                 <i class="fas fa-vial doc-icon"></i>
                 <h4>Test Plan Report</h4>
-                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/TestPlan.pdf" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> Coming Soon
-                </a>
+				<span class="btn-disabled">
+            		<i class="fas fa-lock"></i> Coming Soon
+        		</span>
             </div>
 
             <div class="doc-card">
                 <i class="fas fa-book-open doc-icon"></i>
                 <h4>Final Report</h4>
-                <a href="https://github.com/YOUR_ORG_NAME/YOUR_PRIVATE_REPO/raw/main/reports/FinalReport.pdf" class="btn-doc" target="_blank">
-                    <i class="fas fa-lock"></i> Coming Soon
-                </a>
+				<span class="btn-disabled">
+            		<i class="fas fa-lock"></i> Coming Soon
+        		</span>
             </div>
         </div>
     </section>
@@ -453,5 +467,3 @@
 
 </body>
 </html>
-
-
