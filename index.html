@@ -280,33 +280,24 @@
             <h2>Project Overview</h2>
             <p class="about-text">
                 This project presents the design and development of an <strong>AI-powered personalized financial assistant</strong>. 
-                The system enables retail investors to make informed decisions by integrating multiple AI modules: 
-                news-based sentiment analysis, stock & sector forecasting (TCN & MAMBA), and a Reinforcement Learning-based portfolio optimizer.
-                Users interact with the system through an intuitive chat interface powered by a central AI agent.
+                The system enables retail investors to make informed decisions by integrating 5 core AI modules.
+                Users interact with the system through an intuitive chat interface powered by a central AI agent that orchestrates data retrieval and model inference.
             </p>
         </div>
     </section>
 
     <section id="features">
         <div class="section-center">
-            <h2>Key Features</h2>
+            <h2>Core AI Modules</h2>
         </div>
         <div class="features-grid">
+            
             <div class="feature-card">
                 <i class="fas fa-newspaper"></i>
-                <h3>News Sentiment Analysis</h3>
+                <h3>Sentiment Analysis</h3>
                 <p>
-                    Utilizes NLP transformer models (BERT/RoBERTa) to analyze multilingual financial news, determining
-                    sentiment direction (positive/negative) and impact on specific sectors.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Market Forecasting</h3>
-                <p>
-                    Leverages Temporal Convolutional Networks (TCN) for individual stock price direction and 
-                    MAMBA multi-scale attention models for long-term sector trend predictions.
+                    Scrapes financial news and applies NLP models to assign positive/negative/neutral scores, 
+                    supporting both real-time queries and historical analysis.
                 </p>
             </div>
 
@@ -314,8 +305,26 @@
                 <i class="fas fa-coins"></i>
                 <h3>RL Portfolio Optimizer</h3>
                 <p>
-                    A Reinforcement Learning module that dynamically adapts asset allocation recommendations 
-                    based on the user's risk profile, investment horizon, and market conditions.
+                    Leverages a Reinforcement Learning agent to learn adaptive asset allocations based on user 
+                    risk profiles, portfolio inputs, and market data.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Stock Price Prediction</h3>
+                <p>
+                    Uses Temporal Convolutional Networks (TCN) to ingest OHLCV time series and forecast 
+                    short-term price direction (up/down) for individual stocks.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>Sectoral Index Prediction</h3>
+                <p>
+                    Utilizes the MAMBA multi-scale attention model to predict longer-term trends for sector indices, 
+                    informing broader sector allocation decisions.
                 </p>
             </div>
 
@@ -323,10 +332,11 @@
                 <i class="fas fa-comments"></i>
                 <h3>RAG Document Assistant</h3>
                 <p>
-                    Retrieval-Augmented Generation (RAG) allows users to upload financial reports 
-                    and query them using natural language for context-aware insights.
+                    Allows users to upload documents (PDF/Word) which are embedded into a vector store, 
+                    enabling context-aware Q&A via an LLM.
                 </p>
             </div>
+
         </div>
     </section>
 
@@ -405,7 +415,7 @@
     <section id="team">
         <div class="section-center">
             <h2>The Team</h2>
-            <p style="margin-bottom: 30px; color: var(--muted-text);">TOBB University of Economics & Technology - AI Engineering / Computer Engineering</p>
+            <p style="margin-bottom: 30px; color: var(--muted-text);">TOBB University of Economics & Technology - AI Engineering</p>
         </div>
         <div class="team-grid">
             <div class="team-member">
@@ -442,5 +452,4 @@
     </footer>
 
 </body>
-
 </html>
