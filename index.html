@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            /* Light Theme Palette */
-            --primary-color: #0056b3;   /* Deep corporate blue for primary actions and titles */
-            --secondary-color: #ffffff; /* White for card backgrounds */
-            --bg-color: #f8f9fa;        /* Very light gray/off-white for main background */
-            --text-color: #343a40;      /* Dark gray for main text for readability */
-            --muted-text: #6c757d;      /* Lighter gray for subtitles and info */
-            --accent-color: #28a745;    /* Financial 'success' green */
-            --border-color: #e9ecef;    /* Light border color */
+            --primary-color: #0056b3;
+            --secondary-color: #ffffff;
+            --bg-color: #f8f9fa;
+            --text-color: #343a40;
+            --muted-text: #6c757d;
+            --accent-color: #28a745;
+            --border-color: #e9ecef;
         }
 
         body {
@@ -28,7 +27,6 @@
 
         /* Header / Hero Section */
         header {
-            /* New working bright image with a light white overlay */
             background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center center;
@@ -75,7 +73,7 @@
 
 	.btn-disabled {
 	    background-color: #e9ecef;
-            color: #999; /* Daha silik yazı rengi */
+            color: #999;
     	    padding: 10px 15px;
     	    border-radius: 5px;
     	    text-decoration: none;
@@ -283,9 +281,9 @@
 
     <header>
         <h1>AI Financial Assistant</h1>
-        <p class="subtitle">An intelligent platform for sentiment analysis, market forecasting, and personalized portfolio optimization.</p>
+        <p class="subtitle">An intelligent platform for market forecasting, personalized portfolio optimization and sentiment analysis.</p>
         <a href="https://github.com/Bitirme2025" class="btn" target="_blank">
-            <i class="fab fa-github"></i> View Website Source
+            <i class="fab fa-github"></i> View Project Source
         </a>
     </header>
 
@@ -293,9 +291,10 @@
         <div class="section-center">
             <h2>Project Overview</h2>
             <p class="about-text">
-                This project presents the design and development of an <strong>AI-powered personalized financial assistant</strong>. 
-                The system enables retail investors to make informed decisions by integrating 5 core AI modules.
-                Users interact with the system through an intuitive chat interface powered by a central AI agent that orchestrates data retrieval and model inference.
+                This project presents an <strong>AI-powered personalized financial assistant</strong> designed to empower retail investors with institutional-grade insights. 
+                Through an intuitive chat interface, users can analyze market trends, optimize their portfolios based on personal risk profiles, 
+                and assess investment risks. By integrating real-time news, predictive analytics, and document analysis, the system transforms complex financial data into clear,
+                actionable guidance for smarter decision-making.
             </p>
         </div>
     </section>
@@ -308,46 +307,46 @@
             
             <div class="feature-card">
                 <i class="fas fa-newspaper"></i>
-                <h3>Sentiment Analysis</h3>
+                <h3>News Analysis & Tagging</h3>
                 <p>
-                    Scrapes financial news and applies NLP models to assign positive/negative/neutral scores, 
-                    supporting both real-time queries and historical analysis.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <i class="fas fa-coins"></i>
-                <h3>RL Portfolio Optimizer</h3>
-                <p>
-                    Leverages a Reinforcement Learning agent to learn adaptive asset allocations based on user 
-                    risk profiles, portfolio inputs, and market data.
+                    Aggregates financial news and utilizes BERT models to perform sentiment analysis and automatic tagging, 
+                    allowing users to filter updates by sector or stock relevance.
                 </p>
             </div>
 
             <div class="feature-card">
                 <i class="fas fa-chart-line"></i>
-                <h3>Stock Price Prediction</h3>
+                <h3>Stock Prediction Tool</h3>
                 <p>
-                    Uses Temporal Convolutional Networks (TCN) to ingest OHLCV time series and forecast 
-                    short-term price direction (up/down) for individual stocks.
+                    Uses advanced Deep Learning models (TCN & MAMBA) to analyze historical patterns and forecast 
+                    short-term directional movements for both individual stocks and sectors.
                 </p>
             </div>
 
             <div class="feature-card">
-                <i class="fas fa-layer-group"></i>
-                <h3>Sectoral Index Prediction</h3>
+                <i class="fas fa-dice"></i>
+                <h3>Monte Carlo Simulation</h3>
                 <p>
-                    Utilizes the MAMBA multi-scale attention model to predict longer-term trends for sector indices, 
-                    informing broader sector allocation decisions.
+                    Performs statistical simulations to estimate potential future price trajectories and risk levels, 
+                    providing a probabilistic counterweight to AI predictions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-coins"></i>
+                <h3>Portfolio Optimizer</h3>
+                <p>
+                    Leverages a Reinforcement Learning agent to recommend personalized asset allocations and 
+                    rebalancing strategies tailored to the user's specific risk profile.
                 </p>
             </div>
 
             <div class="feature-card">
                 <i class="fas fa-comments"></i>
-                <h3>RAG Document Assistant</h3>
+                <h3>RAG Context Tool</h3>
                 <p>
-                    Allows users to upload documents (PDF/Word) which are embedded into a vector store, 
-                    enabling context-aware Q&A via an LLM.
+                    Allows users to upload financial documents which are embedded into a vector store, 
+                    enabling the AI agent to provide context-aware answers via an LLM.
                 </p>
             </div>
 
@@ -467,5 +466,4 @@
 
 </body>
 </html>
-
 
