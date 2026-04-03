@@ -85,6 +85,7 @@ box-shadow:0 10px 25px rgba(0,0,0,0.5);
 h2{
 font-size:2rem;
 margin-bottom:40px;
+text-align:center;
 }
 
 /* FEATURES */
@@ -101,6 +102,7 @@ border:1px solid var(--border);
 border-radius:14px;
 padding:28px;
 transition:.25s;
+text-align:center;
 }
 
 .card:hover{
@@ -137,6 +139,10 @@ border:1px solid var(--border);
 padding:22px;
 border-radius:10px;
 text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+height:100%;
 }
 
 .doc i{
@@ -145,8 +151,21 @@ color:var(--accent2);
 margin-bottom:10px;
 }
 
-.doc button{
+.doc a.btn-download{
 margin-top:10px;
+display:inline-block;
+background:var(--accent);
+color:white;
+padding:10px 15px;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:all .3s;
+}
+
+.doc a.btn-download:hover{
+background:var(--accent2);
+color:#000;
 }
 
 /* TEAM */
@@ -164,6 +183,7 @@ text-align:center;
 
 .member h4{
 margin:8px 0 3px;
+color:var(--accent);
 }
 
 .member span{
@@ -199,136 +219,101 @@ font-size:1rem;
 
 <body>
 
-
 <header>
-
 <h1>AI Financial Assistant</h1>
-
 <p class="subtitle">
-An intelligent financial copilot that analyzes markets, manages portfolios,
-runs simulations and provides AI-powered investment insights.
+An intelligent platform for market forecasting, personalized portfolio optimization and sentiment analysis.
 </p>
-
 <button class="btn">Launch Assistant</button>
-
 </header>
 
-
 <section>
-
 <h2>Core Features</h2>
-
 <div class="features">
-
+<div class="card">
+<i class="fas fa-newspaper"></i>
+<h3>News Analysis & Tagging</h3>
+<p>Aggregates financial news and performs sentiment analysis and tagging for sector/stock filtering.</p>
+</div>
 <div class="card">
 <i class="fas fa-chart-line"></i>
-<h3>Market Analysis</h3>
-<p>Real-time financial market monitoring and signal detection powered by AI.</p>
+<h3>Stock Prediction Tool</h3>
+<p>Advanced Deep Learning models (MAMBA) analyze historical patterns and forecast short-term movements.</p>
 </div>
-
-<div class="card">
-<i class="fas fa-wallet"></i>
-<h3>Portfolio Tracking</h3>
-<p>Track portfolio allocation, performance and risk exposure.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-robot"></i>
-<h3>AI Chat Assistant</h3>
-<p>Ask questions about stocks, market sentiment or financial news.</p>
-</div>
-
-<div class="card">
-<i class="fas fa-brain"></i>
-<h3>Prediction Models</h3>
-<p>Machine learning models for financial time series forecasting.</p>
-</div>
-
 <div class="card">
 <i class="fas fa-dice"></i>
 <h3>Monte Carlo Simulation</h3>
-<p>Stress test investment strategies using simulation models.</p>
+<p>Estimates potential price trajectories and risk levels using statistical simulations.</p>
 </div>
-
 <div class="card">
-<i class="fas fa-sliders-h"></i>
-<h3>Portfolio Optimization</h3>
-<p>Optimize risk-return balance using quantitative models.</p>
+<i class="fas fa-coins"></i>
+<h3>Portfolio Optimizer</h3>
+<p>Reinforcement Learning agent recommends personalized asset allocations and rebalancing strategies.</p>
 </div>
-
+<div class="card">
+<i class="fas fa-comments"></i>
+<h3>RAG Context Tool</h3>
+<p>Uploads financial documents to vector store, enabling AI to provide context-aware answers via LLM.</p>
 </div>
-
+</div>
 </section>
 
-
 <section>
-
 <h2>Project Documents</h2>
-
 <div class="docs">
-
 <div class="doc">
-<i class="fas fa-file"></i>
+<i class="fas fa-file-signature"></i>
 <h4>Project Proposal</h4>
-<button class="btn">Download</button>
+<a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Project_Proposal.pdf" class="btn-download" target="_blank">View Document</a>
 </div>
-
 <div class="doc">
-<i class="fas fa-file"></i>
-<h4>Midterm Report</h4>
-<button class="btn">Download</button>
+<i class="fas fa-list-check"></i>
+<h4>Project Specifications</h4>
+<a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Project_Specifications_Report.pdf" class="btn-download" target="_blank">View Document</a>
 </div>
-
 <div class="doc">
-<i class="fas fa-file"></i>
-<h4>Final Report</h4>
-<button class="btn">Download</button>
+<i class="fas fa-magnifying-glass"></i>
+<h4>Analysis Report</h4>
+<a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Analysis_Report.pdf" class="btn-download" target="_blank">View Document</a>
 </div>
-
 <div class="doc">
-<i class="fas fa-code"></i>
-<h4>Source Code</h4>
-<button class="btn">GitHub</button>
+<i class="fas fa-layer-group"></i>
+<h4>High-Level Design</h4>
+<a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/High-Level_Design_Report.pdf" class="btn-download" target="_blank">View Document</a>
 </div>
-
 </div>
-
 </section>
-
 
 <section>
-
 <h2>Team</h2>
-
 <div class="team">
-
 <div class="member">
-<h4>Team Member</h4>
-<span>Developer</span>
+<h4>Akif Emre Reis</h4>
+<span>221401020 | akifreis@mail.com</span>
 </div>
-
 <div class="member">
-<h4>Team Member</h4>
-<span>ML Engineer</span>
+<h4>Can Gürcüoğlu</h4>
+<span>221401016 | cangurcuoglu@mail.com</span>
 </div>
-
 <div class="member">
-<h4>Team Member</h4>
-<span>Backend</span>
+<h4>Adil Kaygın</h4>
+<span>221401003 | kayginadil@gmail.com</span>
 </div>
-
+<div class="member">
+<h4>Hüseyin Arda Tuz</h4>
+<span>221404032 | ardatuz4@gmail.com</span>
 </div>
-
+<div class="member">
+<h4>Ali Berk Karaarslan</h4>
+<span>221401010 | abkaraarslan7@gmail.com</span>
+</div>
+</div>
 </section>
-
 
 <footer>
-
-<p>AI Financial Assistant Project</p>
-<p>Artificial Intelligence Course</p>
-
+<p>&copy; 2026 AI Financial Assistant Project. All Rights Reserved.</p>
+<p>Developed for YAP496/BIL496 - Graduation Project Course.</p>
 </footer>
-
 
 </body>
 </html>
