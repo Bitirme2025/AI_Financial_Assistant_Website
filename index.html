@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Financial Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ffffff;
+            --bg-color: #f8f9fa;
+            --text-color: #343a40;
+            --muted-text: #6c757d;
+            --accent-color: #28a745;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        p.subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: var(--muted-text);
+            font-weight: 500;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+        }
+
+    .btn-disabled {
+        background-color: #e9ecef;
+            color: #999;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+            font-weight: 600;
+            cursor: not-allowed;
+            opacity: 0.7;
+            pointer-events: none;
+    }
+        .btn-download {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+        margin-top: 10px;
+        }
+
+        .btn-download:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+
+        .btn-download i {
+            margin-right: 5px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #004494;
+            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .section-center {
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--muted-text);
+        }
+
+        /* Documents / Reports Section Styles */
+        .phase-title {
+            text-align: left;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            font-weight: 600;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .doc-card {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .doc-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .doc-card i.doc-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .doc-card h4 {
+            margin-top: 0;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .btn-doc {
+            background-color: #e9ecef; /* Light gray button for docs */
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.3s, color 0.3s;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .btn-doc:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-doc i {
+            margin-right: 5px;
+            font-size: 0.8em;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .member-info {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            margin-top: 5px;
+        }
+
+        .team-member h4 {
+            margin: 10px 0 5px 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #343a40; /* Dark footer looks good with light theme */
+            color: #adb5bd;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AI Financial Assistant</h1>
+        <p class="subtitle">An intelligent platform for market forecasting, personalized portfolio optimization and sentiment analysis.</p>
+        <a href="https://github.com/Bitirme2025" class="btn" target="_blank">
+            <i class="fab fa-github"></i> View Project Source
+        </a>
+    </header>
+
+    <section id="about">
+        <div class="section-center">
+            <h2>Project Overview</h2>
+            <p class="about-text">
+                This project presents an <strong>AI-powered personalized financial assistant</strong> designed to empower retail investors with institutional-grade insights.
+                Through an intuitive chat interface, users can analyze market trends, optimize their portfolios based on personal risk profiles,
+                and assess investment risks. By integrating real-time news, predictive analytics, and document analysis, the system transforms complex financial data into clear,
+                actionable guidance for smarter decision-making.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="section-center">
+            <h2>Core AI Modules</h2>
+        </div>
+        <div class="features-grid">
+
+            <div class="feature-card">
+                <i class="fas fa-newspaper"></i>
+                <h3>News Analysis & Tagging</h3>
+                <p>
+                    Aggregates financial news and utilizes BERT models to perform sentiment analysis and automatic tagging,
+                    allowing users to filter updates by sector or stock relevance.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Stock Prediction Tool</h3>
+                <p>
+                    Uses advanced Deep Learning models (MAMBA) to analyze historical patterns and forecast
+                    short-term directional movements for both individual stocks and sectors.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-dice"></i>
+                <h3>Monte Carlo Simulation</h3>
+                <p>
+                    Performs statistical simulations to estimate potential future price trajectories and risk levels,
+                    providing a probabilistic counterweight to AI predictions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-coins"></i>
+                <h3>Portfolio Optimizer</h3>
+                <p>
+                    Leverages a Reinforcement Learning agent to recommend personalized asset allocations and
+                    rebalancing strategies tailored to the user's specific risk profile.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-comments"></i>
+                <h3>RAG Context Tool</h3>
+                <p>
+                    Allows users to upload financial documents which are embedded into a vector store,
+                    enabling the AI agent to provide context-aware answers via an LLM.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="documents">
+        <div class="section-center">
+            <h2>Project Deliverables</h2>
+            <p style="color: var(--muted-text); margin-bottom: 30px;">
+                Documentation for Graduation Project (YAP/BİL 495 & 496). <br>
+                <small><em>Note: Documents are hosted in a private repository and require access rights.</em></small>
+            </p>
+        </div>
+
+        <h3 class="phase-title">YAP495/BIL495</h3>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <i class="fas fa-file-signature doc-icon"></i>
+                <h4>Project Proposal</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Project_Proposal.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-list-check doc-icon"></i>
+                <h4>Project Specifications</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Project_Specifications_Report.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-magnifying-glass doc-icon"></i>
+                <h4>Analysis Report</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/Analysis_Report.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-layer-group doc-icon"></i>
+                <h4>High-Level Design</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20495/High-Level_Design_Report.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+        </div>
+
+        <h3 class="phase-title" style="margin-top: 100px;">YAP496/BIL496</h3>
+        <div class="docs-grid">
+            <div class="doc-card">
+                <i class="fas fa-code doc-icon"></i>
+                <h4>Low-Level Design</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20496/Low-Level_Design_Report.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-vial doc-icon"></i>
+                <h4>Test Plan Report</h4>
+                <a href="https://github.com/Bitirme2025/Docs/blob/main/Bil-Yap%20496/4AC_To_Hell_Test_Plan_Report.pdf" class="btn-download" target="_blank">
+                    <i></i> View Document
+                </a>
+            </div>
+
+            <div class="doc-card">
+                <i class="fas fa-book-open doc-icon"></i>
+                <h4>Final Report</h4>
+                <span class="btn-disabled">
+                    <i class="fas fa-lock"></i> Coming Soon
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section id="team">
+        <div class="section-center">
+            <h2>The Team</h2>
+            <p style="margin-bottom: 30px; color: var(--muted-text);">TOBB University of Economics & Technology - AI Engineering</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Akif Emre Reis</h4>
+                <div class="member-info">221401020</div>
+                <div class="member-info">akifreis@mail.com</div>
+            </div>
+            <div class="team-member">
+                <h4>Can Gürcüoğlu</h4>
+                <div class="member-info">221401016</div>
+                <div class="member-info">cangurcuoglu@mail.com</div>
+            </div>
+            <div class="team-member">
+                <h4>Adil Kaygın</h4>
+                <div class="member-info">221401003</div>
+                <div class="member-info">kayginadil@gmail.com</div>
+            </div>
+            <div class="team-member">
+                <h4>Hüseyin Arda Tuz</h4>
+                <div class="member-info">221404032</div>
+                <div class="member-info">ardatuz4@gmail.com</div>
+            </div>
+            <div class="team-member">
+                <h4>Ali Berk Karaarslan</h4>
+                <div class="member-info">221401010</div>
+                <div class="member-info">abkaraarslan7@gmail.com</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AI Financial Assistant Project. All Rights Reserved.</p>
+        <p>Developed for YAP496/BIL496 - Graduation Project Course.</p>
+    </footer>
+
+</body>
+</html>
