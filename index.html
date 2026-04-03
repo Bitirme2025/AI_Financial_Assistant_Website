@@ -184,6 +184,40 @@ h1 {
     box-shadow: 0 15px 25px -10px rgba(139, 92, 246, 0.8);
 }
 
+/* Container to keep buttons side by side */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Secondary / GitHub Button Style */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    padding: 16px 36px;
+    border-radius: 50px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-muted);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
+}
+
 /* SECTION TITLES */
 h2 {
     font-size: 2.2rem;
@@ -424,7 +458,7 @@ footer {
     h1 {
         font-size: 2.2rem;
     }
-    header {
+     {
         padding: 120px 20px 60px;
     }
     section {
@@ -454,11 +488,16 @@ footer {
 </nav>
 
 <header>
-    <h1>Financial AI Assistant</h1>
+    <h1>AI Financial Assistant</h1>
     <p class="subtitle">
         An intelligent platform for market forecasting, personalized portfolio optimization, and sentiment analysis.
     </p>
-    <a href="#features" class="btn-primary">Explore Features</a>
+    <div class="hero-buttons">
+        <a href="#features" class="btn-primary">Explore Features</a>
+        <a href="https://github.com/Bitirme2025/AI_Financial_Assistant_Website" target="_blank" class="btn-secondary">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </div>
 </header>
 
 <section id="features">
