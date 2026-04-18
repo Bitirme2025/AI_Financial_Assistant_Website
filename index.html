@@ -450,6 +450,19 @@ footer {
     font-size: 0.85rem;
 }
 
+/* Center the middle column and align the right column to the end on desktop */
+@media(min-width: 769px) {
+    .footer-col:nth-child(2) {
+        justify-self: center;
+    }
+    
+    .footer-col:last-child {
+        justify-self: end;
+        /* Optional: align the text to the right for the last column to look cleaner */
+        /* text-align: right; */ 
+    }
+}
+
 /* MOBILE RESPONSIVE */
 @media(max-width: 768px) {
     .nav-links, .nav-cta {
